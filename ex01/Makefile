@@ -2,7 +2,7 @@ GPP = c++
 CFLAGS = -Wall -Wextra -Werror
 VFLAG = -std=c++98
 NAME = Bureaucrat
-CPPF = main.cpp Bureaucrat.cpp
+CPPF = main.cpp Bureaucrat.cpp Form.cpp
 
 SRCS = $(CPPF:.cpp=.o)
 
@@ -11,7 +11,7 @@ all: $(NAME)
 $(NAME): $(SRCS)
 	$(GPP) $(VFLAG) $(CFLAGS) $^ -o $@
 
-%.o : %.cpp Bureaucrat.hpp
+%.o : %.cpp Bureaucrat.hpp Form.hpp
 	$(GPP) $(CFLAGS) $(VFLAG) -c $^
 
 clean: 
@@ -19,5 +19,6 @@ clean:
 
 fclean: clean
 	rm -rf $(NAME) $(SRCS)
+
 
 re: fclean all
