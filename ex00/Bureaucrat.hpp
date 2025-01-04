@@ -10,10 +10,11 @@ class Bureaucrat
         int grade;
 
     public:
+    
         class GradeTooHighException : public std::exception
         {
             public:
-                 const char *what() const throw();
+                const char *what() const throw();
         };
 
         class GradeTooLowException : public std::exception

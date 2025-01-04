@@ -1,8 +1,8 @@
 CPP = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-NAME = Bureaucrat
-SRCS = main.cpp Bureaucrat.cpp
+NAME = Form
+SRCS = main.cpp Bureaucrat.cpp Form.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
@@ -11,7 +11,7 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	$(CPP) $(CFLAGS) $(OBJS) -o $(NAME)
 
-%.o : %.cpp Bureaucrat.hpp
+%.o : %.cpp Bureaucrat.hpp Form.hpp
 	$(CPP) $(CFLAGS)  -c $< -o $@ 
 
 clean: 

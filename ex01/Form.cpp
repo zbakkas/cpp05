@@ -42,9 +42,12 @@ int Form::getGradeToExecute() const
 {
     return (this->gradeToExecute);
 }
-void Form::beSigned()
+void Form::beSigned(Bureaucrat &bur)
 {
-    this->isSigned = true;
+    if(bur.getGrade() <= gradeToSign)
+        this->isSigned = true;
+    else
+        Form::GradeTooLowException;
 }
 const char *Form::GradeTooHighException::what() const throw()
 {
