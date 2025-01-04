@@ -1,5 +1,4 @@
 #include "Bureaucrat.hpp"
-
 int main(void)
 {
 	try
@@ -37,4 +36,7 @@ int main(void)
 	Bureaucrat y = x;
 	std::cout << y << std::endl;
 	return (0);
+
+
+	
 }
