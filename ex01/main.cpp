@@ -4,12 +4,12 @@ int main(void)
 {
 	try
    {
-		Form form("-_-", 45, 10, false);
+		AForm AForm("-_-", 45, 10, false);
 		Bureaucrat b1("zouhir", 41);
-		form.beSigned(b1);
-		b1.signForm(form);
+		AForm.beSigned(b1);
+		b1.signAForm(AForm);
 		std::cout << b1 << std::endl;
-		std::cout << form << std::endl;
+		std::cout << AForm << std::endl;
    }
    catch(const std::exception& e)
    {

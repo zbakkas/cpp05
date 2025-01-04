@@ -3,36 +3,38 @@
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
 
-int main(void)
+int main()
 {
-	try
-	{
-		Form *aform;
-		Bureaucrat bureaucrat("Bureaucrat", 2);
-		ShrubberyCreationForm shrubberycreationform;
-		RobotomyRequestForm robotomyrequestform;
-		PresidentialPardonForm presidentialpardonform;
-		
-		aform = &shrubberycreationform;
-		aform->beSigned(bureaucrat);
-		aform->execute(bureaucrat);
-
-		aform = &robotomyrequestform;
-		aform->beSigned(bureaucrat);
-		aform->execute(bureaucrat);
-
-		aform = &presidentialpardonform;
-		aform->beSigned(bureaucrat);
-		aform->execute(bureaucrat);
-		bureaucrat.executeForm(shrubberycreationform);
-		bureaucrat.executeForm(robotomyrequestform);
-		bureaucrat.executeForm(presidentialpardonform);
-
-		std::cout << shrubberycreationform << std::endl;
-	}
-	catch(const std::exception &e)
-	{
-		std::cout << "Error: " << e.what() << std::endl;
-	}
-	return (0);
+   try
+   {
+		Bureaucrat b1("hel-bouk", 1);
+		ShrubberyCreationForm shrubbery("tree");
+		std::cout << shrubbery;
+		shrubbery.beSigned(b1);
+		std::cout << "----------------\n";
+		std::cout << shrubbery;
+		std::cout << "----------------\n";
+		b1.executeForm(shrubbery);
+		std::cout << "-------------------------------\n";
+		RobotomyRequestForm	robot("IJ_01");
+		robot.beSigned(b1);
+		b1.executeForm(robot);
+		std::cout << "-------------------------------\n";
+		PresidentialPardonForm president("someone");
+		president.beSigned(b1);
+		b1.executeForm(president);
+		std::cout << "-------------::Finish::-----------------\n";
+   }
+   catch(const std::exception& e)
+   {
+	   std::cerr << "execption is : " << e.what() << std::endl;
+   }
+   catch(const char *e)
+   {
+	   std::cerr << "execption is : " << e << std::endl;
+   }
+   catch(const std::string &e)
+   {
+	   std::cerr << "execption is : " << e << std::endl;
+   }
 }

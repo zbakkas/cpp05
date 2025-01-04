@@ -31,7 +31,7 @@ public:
         public:
             const char *what() const throw();
     };
-
+    virtual void execute(Bureaucrat const & executor) const = 0;
 
 
 
