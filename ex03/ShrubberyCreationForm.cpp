@@ -1,8 +1,13 @@
 #include "ShrubberyCreationForm.hpp"
 
+ShrubberyCreationForm::ShrubberyCreationForm()
+	: AForm("Shrubbery", 145, 137, false), target("target")
+{
+	
+}
 
 ShrubberyCreationForm::ShrubberyCreationForm(const std::string target)
-	: AForm("Shrubbery", false, 145, 137), target(target)
+	: AForm("Shrubbery", 145, 137, false), target(target)
 {
 	
 }
@@ -25,7 +30,8 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 		throw (AForm::GradeTooLowException());
 	else if (!this->getIsSigned())
 		throw (this->getName() + " Is Not Signed");
-	std::ofstream outFile(fileName.c_str());
+	std::fstream  outFile;
+	outFile.open(fileName,std::fstream::out);
 	if (!outFile.is_open())
 		throw ("File is not open");
 	
@@ -42,7 +48,7 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
     outFile << "         |||||\n";
     outFile << "   .....//||||\\....\n";
 	outFile.close();
-	std::cout << "Created " << fileName << " Successfully\n";
+	// std::cout << "Created " << fileName << " Successfully\n";
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm()

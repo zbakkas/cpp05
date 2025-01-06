@@ -3,17 +3,28 @@
 
 int main(void)
 {
+	//PresidentialPardonForm
+	//ShrubberyCreationForm
+	//RobotomyRequestForm
 	try
 	{
+		Bureaucrat b1("zouhir", 12);
 		Intern intern;
-		intern.makeForm("shrubbery creation", "target_one");
-		intern.makeForm("robotomy request", "target_two");
-		intern.makeForm("presidential pardon", "target_three");
-		intern.makeForm("non existed object", "target_four");
+		AForm* rrf;
+		rrf = intern.makeForm("PresidentialPardonForm", "target_one");
+		// rrf =  intern.makeForm("ShrubberyCreationForm", "target_two");
+		//rrf = intern.makeForm("RobotomyRequestForm", "target_three");
+		//rrf = intern.makeForm("non", "target_four");
+		std::cout << *rrf ;
+		rrf->beSigned(b1);
+		b1.signAForm(*rrf);
+		b1.executeForm(*rrf);
+
 	}
-	catch(const std::exception &e)
+	// catch(const std::exception &e)
+	catch(const std::string &e)
 	{
-		std::cout << "Error: " << e.what() << std::endl;
+		std::cout << "Error: " << e << std::endl;
 	}
 	return (0);
 }

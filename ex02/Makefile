@@ -2,7 +2,7 @@ CPP = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 NAME = AForm
-SRCS = main.cpp Bureaucrat.cpp AForm.cpp presidentialPardonForm.cpp robotomyRequestForm.cpp shrubberyCreationForm.cpp
+SRCS = main.cpp Bureaucrat.cpp AForm.cpp PresidentialPardonForm.cpp RobotomyRequestForm.cpp ShrubberyCreationForm.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
@@ -11,7 +11,7 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	$(CPP) $(CFLAGS) $(OBJS) -o $(NAME)
 
-%.o : %.cpp Bureaucrat.hpp AForm.hpp presidentialPardonForm.hpp robotomyRequestForm.hpp shrubberyCreationForm.hpp
+%.o : %.cpp Bureaucrat.hpp AForm.hpp PresidentialPardonForm.hpp RobotomyRequestForm.hpp ShrubberyCreationForm.hpp
 	$(CPP) $(CFLAGS)  -c $< -o $@ 
 
 clean: 

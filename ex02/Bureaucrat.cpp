@@ -71,7 +71,7 @@ void Bureaucrat::signAForm(AForm &AForm)
 
 void Bureaucrat::executeForm(AForm const & form)
 {
-	if (!(form.getIsSigned() || form.getGradeToExecute() < this->getGrade()))
+	if (!form.getIsSigned() || this->getGrade() > form.getGradeToExecute())
 		throw (this->name + " can't execute form because you don't have permission.");
 	form.execute(*this);
 	std::cout << this->name << " executed " << form.getName() << std::endl;

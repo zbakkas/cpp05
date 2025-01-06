@@ -16,9 +16,9 @@ Intern & Intern::operator = (const Intern &object)
 
 AForm *Intern::makeForm(std::string name, const std::string target)
 {
-	std::string names[] = {"shrubbery creation", "robotomy request", "presidential pardon"};
+	std::string names[] = {"ShrubberyCreationForm", "RobotomyRequestForm", "PresidentialPardonForm"};
 	AForm *objects[] = {new ShrubberyCreationForm(target), new RobotomyRequestForm(target), new PresidentialPardonForm(target)};
-	int i(0);
+	int i=0;
 	while (i < 3)
 	{
 		if (name == names[i])
@@ -28,6 +28,6 @@ AForm *Intern::makeForm(std::string name, const std::string target)
 		}
 		++i;
 	}
-	std::cout << "Intern failed to created object " << name << std::endl;
+	std::cout << "** Intern failed to created object" << name << " **\n";
 	return (NULL);
 }

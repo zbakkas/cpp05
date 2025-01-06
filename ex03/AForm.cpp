@@ -1,7 +1,7 @@
 
 #include "AForm.hpp"
 
-AForm::AForm() : name("Default"), isSigned(false), gradeToSign(150), gradeToExecute(150)
+AForm::AForm() : name("Default"), gradeToSign(150), gradeToExecute(150), isSigned(false)
 {
 }
 
@@ -13,7 +13,7 @@ AForm::AForm(std::string name, int gradeToSign, int gradeToExecute, bool isSigne
         throw AForm::GradeTooLowException();
 }
 
-AForm::AForm(const AForm &AForm) : name(AForm.name), isSigned(AForm.isSigned), gradeToSign(AForm.gradeToSign), gradeToExecute(AForm.gradeToExecute)
+AForm::AForm(const AForm &AForm) : name(AForm.name), gradeToSign(AForm.gradeToSign), gradeToExecute(AForm.gradeToExecute), isSigned(AForm.isSigned)
 {
 }
 AForm &AForm::operator =(const AForm &AForm)
@@ -59,7 +59,7 @@ const char *AForm::GradeTooLowException::what() const throw()
 }
 std::ostream &operator <<(std::ostream &out, const AForm &AForm)
 {
-    out << AForm.getName() << ", AForm grade to sign " << AForm.getGradeToSign() << ", AForm grade to execute " << AForm.getGradeToExecute() << ", AForm is signed " << AForm.getIsSigned();
+    out << AForm.getName() << ", AForm grade to sign " << AForm.getGradeToSign() << ", AForm grade to execute " << AForm.getGradeToExecute() << ", AForm is signed " << AForm.getIsSigned() << std::endl;
     return (out);
 }
 

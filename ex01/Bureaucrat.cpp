@@ -59,13 +59,13 @@ std::ostream &operator <<(std::ostream &out, const Bureaucrat &bureaucrat)
     return (out);
 }
 
-void Bureaucrat::signAForm(AForm &AForm)
+void Bureaucrat::signForm(Form &form)
 {
-    if (AForm.getIsSigned() == true)
-        std::cout << this->getName() << " signs " << AForm.getName() << std::endl;
+    if (form.getIsSigned() == true)
+        std::cout << this->getName() << " signs " << form.getName() << std::endl;
     else
     {
-        std::cout << this->getName() << " cannot sign " << AForm.getName() << " because grade is too lowh" << std::endl;
+        std::cout << this->getName() << " cannot sign " << form.getName() << " because grade is too lowh" << std::endl;
     }
 }
 

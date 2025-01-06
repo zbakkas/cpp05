@@ -3,8 +3,8 @@
 
 #include <iostream>
 
-#include "AForm.hpp"
-class AForm;
+#include "Form.hpp"
+class Form;
 class Bureaucrat
 {
     private:
@@ -34,7 +34,7 @@ class Bureaucrat
         int getGrade() const;
         void incrementGrade();
         void decrementGrade();
-        void signAForm(AForm &AForm);    
+        void signForm(Form &Form);    
 
         
         

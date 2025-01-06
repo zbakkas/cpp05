@@ -1,8 +1,12 @@
 #include "RobotomyRequestForm.hpp"
 
+RobotomyRequestForm::RobotomyRequestForm()
+    : AForm("RobotomyRequestForm",  72, 45,false), target("target")
+{
 
+}
 RobotomyRequestForm::RobotomyRequestForm(const std::string target)
-    : AForm("RobotomyRequestForm", false, 72, 45), target(target)
+    : AForm("RobotomyRequestForm",  72, 45,false), target(target)
 {
 
 }
@@ -26,7 +30,10 @@ void RobotomyRequestForm::execute(Bureaucrat const &executor) const
 		throw (this->getName() + " Is Not Signed");
     std::cout << "Drilling noise\n";
     std::srand(std::time(NULL));
-    if (std::rand() % 2)
+    // std::cout << std::rand()<< std::endl;
+    // std::cout << std::rand()<< std::endl;
+    int random_number = rand() % 2;
+    if (random_number)
         std::cout << target << " has been robotomized successfully\n";
     else
         std::cout << target << " has been failed to robotomized\n";
